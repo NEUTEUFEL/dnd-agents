@@ -10,6 +10,7 @@ interface SimulationState {
   actionLog: ActionLogEntry[];
   isPaused: boolean;
   overallProgress: number;
+  claudeUsage: number; // Simulated Claude API usage 0-100
 }
 
 // Slower intervals for gentler movement
@@ -84,6 +85,7 @@ export function useAgentSimulation() {
       ],
       isPaused: false,
       overallProgress: 0,
+      claudeUsage: 0,
     };
   }
 
@@ -315,6 +317,10 @@ export function useAgentSimulation() {
       const totalProgress = newTasks.reduce((sum, t) => sum + t.progress, 0);
       const overallProgress = Math.floor(totalProgress / newTasks.length);
 
+      // Simulate Claude usage (each action costs a small amount)
+      const usageIncrement = newLogs.length * 0.3; // Each logged action uses ~0.3%
+      const newClaudeUsage = Math.min(100, prev.claudeUsage + usageIncrement);
+
       return {
         ...prev,
         agents: newAgents,
@@ -322,6 +328,7 @@ export function useAgentSimulation() {
         tasks: newTasks,
         actionLog: [...prev.actionLog, ...newLogs],
         overallProgress,
+        claudeUsage: newClaudeUsage,
       };
     });
   }, []);
@@ -384,6 +391,7 @@ export function useAgentSimulation() {
     actionLog: state.actionLog,
     isPaused: state.isPaused,
     overallProgress: state.overallProgress,
+    claudeUsage: Math.round(state.claudeUsage),
     pause,
     resume,
     restart,

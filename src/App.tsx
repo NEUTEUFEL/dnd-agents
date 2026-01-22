@@ -5,8 +5,8 @@ import { GameWorld } from './components/GameWorld';
 import { AgentCard } from './components/AgentCard';
 import { ActionLog } from './components/ActionLog';
 import { ControlPanel } from './components/ControlPanel';
-import { ProgressBar } from './components/ProgressBar';
 import { AgentsModal } from './components/AgentsModal';
+import { AgentSummary } from './components/AgentSummary';
 import './App.css';
 
 function App() {
@@ -17,6 +17,7 @@ function App() {
     actionLog,
     isPaused,
     overallProgress,
+    claudeUsage,
     pause,
     resume,
     restart,
@@ -50,11 +51,6 @@ function App() {
         </p>
       </header>
 
-      {/* Progress Bar */}
-      <div className="max-w-3xl mx-auto mb-4">
-        <ProgressBar progress={overallProgress} />
-      </div>
-
       {/* Main Layout */}
       <div className="flex gap-4 max-w-7xl mx-auto">
         {/* Game World (left/center) */}
@@ -73,6 +69,16 @@ function App() {
           <AgentCard agent={currentSelectedAgent} />
           <ActionLog entries={actionLog} />
         </div>
+      </div>
+
+      {/* Agent Summary Section */}
+      <div className="max-w-7xl mx-auto mt-4">
+        <AgentSummary
+          agents={agents}
+          tasks={tasks}
+          overallProgress={overallProgress}
+          claudeUsage={claudeUsage}
+        />
       </div>
 
       {/* Control Panel */}

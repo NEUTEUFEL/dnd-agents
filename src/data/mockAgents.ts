@@ -1,4 +1,4 @@
-import { Agent, TaskStation, Task, Project } from '../types/agent';
+import type { Agent, TaskStation, Task, Project } from '../types/agent';
 
 export const MOCK_AGENTS: Agent[] = [
   {

@@ -1,4 +1,4 @@
-import { Agent } from '../types/agent';
+import type { Agent } from '../types/agent';
 import { AgentAvatar } from './AgentAvatar';
 import { StatBar } from './StatBar';
 

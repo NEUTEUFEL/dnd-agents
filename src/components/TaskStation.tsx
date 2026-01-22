@@ -1,4 +1,4 @@
-import { TaskStation as TaskStationType, Agent, Task } from '../types/agent';
+import type { TaskStation as TaskStationType, Agent, Task } from '../types/agent';
 import { AgentAvatar } from './AgentAvatar';
 import { TASK_TYPE_LABELS } from '../data/mockAgents';
 

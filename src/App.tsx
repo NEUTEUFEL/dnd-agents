@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useAgentSimulation } from './hooks/useAgentSimulation';
-import { Agent } from './types/agent';
+import type { Agent } from './types/agent';
 import { Workspace } from './components/Workspace';
 import { AgentCard } from './components/AgentCard';
 import { ActionLog } from './components/ActionLog';

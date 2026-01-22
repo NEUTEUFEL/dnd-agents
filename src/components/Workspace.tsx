@@ -1,4 +1,4 @@
-import { Agent, TaskStation as TaskStationType, Task } from '../types/agent';
+import type { Agent, TaskStation as TaskStationType, Task } from '../types/agent';
 import { TaskStation } from './TaskStation';
 
 interface WorkspaceProps {

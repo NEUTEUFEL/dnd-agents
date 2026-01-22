@@ -1,4 +1,4 @@
-import { ActionLogEntry } from '../types/agent';
+import type { ActionLogEntry } from '../types/agent';
 
 interface ActionLogProps {
   entries: ActionLogEntry[];

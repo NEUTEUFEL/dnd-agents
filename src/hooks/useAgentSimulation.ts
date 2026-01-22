@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { Agent, Task, TaskStation, ActionLogEntry, Project } from '../types/agent';
+import type { Agent, Task, TaskStation, ActionLogEntry, Project } from '../types/agent';
 import { MOCK_AGENTS, MOCK_STATIONS, MOCK_PROJECT } from '../data/mockAgents';
 
 interface SimulationState {

@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+:root {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Stat bar animation */
+@keyframes fillBar {
+  from { width: 0; }
+}
+
+.stat-bar-fill {
+  animation: fillBar 0.5s ease-out;
+}
+
+/* Agent pulse animation */
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.3); opacity: 0; }
+}
+
+.agent-active::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  animation: pulse-ring 1.5s ease-out infinite;
+}
+
+/* Grid pattern for the workspace */
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(71, 85, 105, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(71, 85, 105, 0.3) 1px, transparent 1px);
+  background-size: 40px 40px;
+}

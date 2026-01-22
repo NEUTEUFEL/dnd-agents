@@ -122,12 +122,12 @@ export function useAgentSimulation() {
 
         if (!currentStation) return agent;
 
-        // If at bar or lounge, randomly decide to leave
-        if (currentStation.taskType === 'bar' || currentStation.taskType === 'lounge') {
+        // If at break room or lounge, randomly decide to leave
+        if (currentStation.taskType === 'break' || currentStation.taskType === 'lounge') {
           if (Math.random() > 0.7) {
             // Find a work table to go to
             const workStations = newStations.filter(
-              (s) => !['bar', 'lounge'].includes(s.taskType) && s.currentAgentIds.length < s.capacity
+              (s) => !['break', 'lounge'].includes(s.taskType) && s.currentAgentIds.length < s.capacity
             );
             if (workStations.length > 0) {
               const target = workStations[Math.floor(Math.random() * workStations.length)];

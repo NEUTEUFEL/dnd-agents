@@ -40,11 +40,11 @@ export function Workspace({
         );
       })}
 
-      {/* Bar area */}
+      {/* Apartment label */}
       <div className="absolute left-6 top-1/2 -translate-y-1/2">
         <div className="flex items-center gap-2 text-slate-500">
-          <span className="text-2xl">🍺</span>
-          <span className="text-xs uppercase tracking-wider">Bar</span>
+          <span className="text-2xl">🏠</span>
+          <span className="text-xs uppercase tracking-wider">Apt 4A</span>
         </div>
       </div>
     </div>

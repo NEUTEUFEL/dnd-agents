@@ -18,7 +18,7 @@ export function TaskStation({
   selectedAgentId,
 }: TaskStationProps) {
   const stationAgents = agents.filter(a => station.currentAgentIds.includes(a.id));
-  const isSpecialStation = station.taskType === 'bar' || station.taskType === 'lounge';
+  const isSpecialStation = station.taskType === 'break' || station.taskType === 'lounge';
 
   return (
     <div

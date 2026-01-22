@@ -14,6 +14,12 @@ export type AgentPersonality =
   | 'Chaotic';
 
 export type AgentStatus = 'idle' | 'working' | 'moving' | 'completed' | 'blocked';
+export type Direction = 'up' | 'down' | 'left' | 'right';
+
+export interface Position {
+  x: number;
+  y: number;
+}
 
 export interface Agent {
   id: string;
@@ -28,6 +34,11 @@ export interface Agent {
   currentTaskId: string | null;
   status: AgentStatus;
   goal: string;
+  // Position tracking for game-like movement
+  position: Position;
+  targetPosition: Position | null;
+  direction: Direction;
+  currentStationId: string | null;
 }
 
 export interface Task {
@@ -41,13 +52,17 @@ export interface Task {
   status: 'pending' | 'in_progress' | 'completed';
 }
 
+export type TaskType = 'idea' | 'research' | 'build' | 'review' | 'lounge' | 'break';
+
 export interface TaskStation {
   id: string;
   name: string;
-  position: { x: number; y: number };
+  position: Position;
+  // Multiple spots at each station for agents to stand
+  agentSpots: Position[];
   capacity: number;
   currentAgentIds: string[];
-  taskType: 'idea' | 'research' | 'mvp' | 'plan' | 'bar' | 'lounge';
+  taskType: TaskType;
 }
 
 export interface ActionLogEntry {

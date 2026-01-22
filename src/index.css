@@ -7,29 +7,36 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  background: linear-gradient(180deg, #1e1b4b 0%, #0f172a 50%, #020617 100%);
 }
 
 #root {
   min-height: 100vh;
 }
 
+/* Pixel art rendering */
+.pixelated {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
   background: #1e293b;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #475569;
-  border-radius: 3px;
+  background: linear-gradient(180deg, #6366f1, #8b5cf6);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #64748b;
+  background: linear-gradient(180deg, #818cf8, #a78bfa);
 }
 
 /* Stat bar animation */
@@ -56,10 +63,73 @@ body {
   animation: pulse-ring 1.5s ease-out infinite;
 }
 
+/* Bounce animation for working indicator */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.animate-bounce {
+  animation: bounce 0.6s ease-in-out infinite;
+}
+
+/* Selection pulse */
+@keyframes selection-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(250, 204, 21, 0); }
+}
+
+/* Retro game font styling */
+.game-font {
+  font-family: 'Press Start 2P', monospace;
+}
+
 /* Grid pattern for the workspace */
 .grid-pattern {
   background-image:
-    linear-gradient(rgba(71, 85, 105, 0.3) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(71, 85, 105, 0.3) 1px, transparent 1px);
-  background-size: 40px 40px;
+    linear-gradient(rgba(71, 85, 105, 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(71, 85, 105, 0.2) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Retro button style */
+.retro-button {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  padding: 8px 16px;
+  border: 3px solid;
+  border-color: #fff #666 #666 #fff;
+  background: linear-gradient(180deg, #4a5568 0%, #2d3748 100%);
+  box-shadow: 4px 4px 0 #000;
+  transition: all 0.1s;
+}
+
+.retro-button:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 #000;
+}
+
+.retro-button:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+/* Card glow effect */
+.card-glow {
+  box-shadow:
+    0 0 20px rgba(99, 102, 241, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Walking animation keyframes */
+@keyframes walk {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-2px); }
+  75% { transform: translateY(-2px); }
+}
+
+/* Sparkle effect for completed tasks */
+@keyframes sparkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
 }

@@ -36,6 +36,14 @@ const AGENT_INFO = {
     capabilities: ['Email processing', 'Todo management', 'Task completion'],
     placeholder: 'e.g., "Check my emails and organize my day"',
   },
+  howard: {
+    name: 'Howard',
+    title: 'Slack Monitor',
+    color: '#f59e0b',
+    icon: '💬',
+    capabilities: ['Slack monitoring', 'Mention alerts', 'Todo extraction'],
+    placeholder: 'e.g., "Check Slack and tell me what needs my attention"',
+  },
 };
 
 export function AgentControlPanel({
@@ -78,7 +86,7 @@ export function AgentControlPanel({
       </div>
 
       {/* Agent Selection */}
-      <div className="grid grid-cols-3 gap-3 mb-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
         {Object.entries(AGENT_INFO).map(([id, info]) => (
           <button
             key={id}

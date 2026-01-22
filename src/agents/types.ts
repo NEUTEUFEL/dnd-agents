@@ -1,6 +1,6 @@
 // Core agent types for real AI agent implementation
 
-export type AgentRole = 'research' | 'code-review' | 'intern' | 'coordinator';
+export type AgentRole = 'research' | 'code-review' | 'intern' | 'slack-monitor' | 'coordinator';
 
 export interface AgentConfig {
   id: string;
